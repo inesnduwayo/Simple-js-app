@@ -6,11 +6,11 @@ let pokemonList = [
 
 for (let i =0; i< pokemonList.length; i++){
     if(pokemonList[i].height <10 && pokemonList[i].height >6){
-     console.log(pokemonList[i].document.write("Bulbasaur") + "is average");
+     console.log(document.write(pokemonList[i]) + "is average");
     }else if (pokemonList[i].height <6){
-      console.log(pokemonList[i].document.write("Jigglypuff") + "is smaller");
+      console.log(document.write(pokemonList[i]) + "is smaller");
     }else {
-      console.log(pokemonList[i].document.write("Pidgeotto") +  "is bigger");
+      console.log(document.write(pokemonList[i]) +  "is bigger");
     }
 
     }
