@@ -1,21 +1,4 @@
-let pokemonList = [
-  //pokemon objects
- {name:"Bulbasaur", height:"7", types:["grass","poison"] },
- {name:"Jigglypuff", height:"5", types:["fairy","normal"]},
- {name:"Pidgeotto", height:"11", types:["flying","normal"]}
- ];
 
-
- pokemonList.forEach ( item => console.log(item));
-
- let pokemonList = [
-  //pokemon objects
- {name:"Bulbasaur", height:"7", types:["grass","poison"] },
- {name:"Jigglypuff", height:"5", types:["fairy","normal"]},
- {name:"Pidgeotto", height:"11", types:["flying","normal"]}
- ]
-
- 
 let pokemonRepository = (function (){
    
   let pokemonList = [
@@ -34,23 +17,64 @@ let pokemonRepository = (function (){
       height: 11,
       types: ['flying', 'normal']
     }
-  ]
-   function getAll () {
+  ];
+
+   
+  function add (pokemon){
+    if(typeof pokemon === 'object') {
+       pokemonList.push (pokemon);
+     }
+
+  }
+
+  function getAll () {
       return pokemonList;
-   }
-   function add (pokemon){
-      pokemonList.push (pokemon);
    }
    
    return {
+        add: add,
         getAll: getAll,
-        add: add
-   } u
+        
+   }    
+ 
+   })();
 
-
-})()
-
-console.log (pokemonRepository.getAll())
+   pokemonRepository.add(
+    {
+      name: 'Bulbasaur',
+      height: 7,
+      types: ['grass', 'poison']
+    },
+    {
+      name: 'Jigglypuff',
+      height: 5,
+      types: ['fairy', 'normal']
+    },
+    {
+      name:'Pidgeotto',
+      height: 11,
+      types: ['flying', 'normal']
+    }
   
+
+pokemonList.getall().forEach(function(pokemon){
+
+  if(pokemonheight <10 & pokemon.height>6){
+  document.write(pokemon.name)+ "is average";
+  } else if(pokemon.height<6){
+  document.write(pokemon.name)+ "is smaller";
+  }else{
+  document.write(pokemon.name)+ "is bigger";
+  }
+  });
+
+  
+
+
+  
+
+
+  
+
 
 
