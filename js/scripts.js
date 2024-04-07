@@ -1,62 +1,72 @@
-let pokemonRepository = (function () {
+
+let pokemonRepository = (function (){
+   
   let pokemonList = [
     {
-      name: "Bulbasaur",
+      name: 'Bulbasaur',
       height: 7,
-      types: ["grass", "poison"],
+      types: ['grass', 'poison']
     },
     {
-      name: "Jigglypuff",
+      name: 'Jigglypuff',
       height: 5,
-      types: ["fairy", "normal"],
+      types: ['fairy', 'normal']
     },
     {
-      name: "Pidgeotto",
+      name:'Pidgeotto',
       height: 11,
-      types: ["flying", "normal"],
-    },
+      types: ['flying', 'normal']
+    }
   ];
 
-  function add(pokemon) {
-    if (typeof pokemon === "object") {
-      pokemonList.push(pokemon);
-    }
+   
+  function add (pokemon){
+    if(typeof pokemon === 'object') {
+       pokemonList.push (pokemon);
+     }
+
   }
 
-  function getAll() {
-    return pokemonList;
-  }
+  function getAll () {
+      return pokemonList;
+   }
 
-  return {
-    add: add,
-    getAll: getAll,
-  };
-})();
+   function addlistItem (pokemon){
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listpokemon = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);
+   }
+   
+   return {
+        add: add,
+        getAll: getAll,
+        addlistItem: addlistItem
+        
+   }    
+ 
+   })();
 
-pokemonRepository.add(
-  {
-    name: "Bulbasaur",
-    height: 7,
-    types: ["grass", "poison"],
-  },
-  {
-    name: "Jigglypuff",
-    height: 5,
-    types: ["fairy", "normal"],
-  },
-  {
-    name: "Pidgeotto",
-    height: 11,
-    types: ["flying", "normal"],
-  }
-);
+   
 
-pokemonRepository.getAll().forEach(function (pokemon) {
-  if ((pokemon.height < 10) & (pokemon.height > 6)) {
-    document.write(pokemon.name + " is average.<br/>");
-  } else if (pokemon.height < 6) {
-    document.write(pokemon.name + " is smaller.<br/>");
-  } else {
-    document.write(pokemon.name + " is bigger.<br/>");
-  }
-});
+pokemonList.getall().forEach(function(pokemon){
+
+  pokemonRepository.addlistItem(pokemon);
+
+  
+
+})
+
+  
+
+
+  
+
+
+  
+
+
+
